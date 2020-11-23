@@ -19,17 +19,12 @@ class Calculator:
     def add_record(self, record):
         self.records.append(record)
 
-    def get_today_stats_old(self):
-        result = 0
-        today = dt.date.today()
-        for record in self.records:
-            if record.date == today:
-                result += record.amount
-        return result
-
     def get_today_stats(self):
         today = dt.date.today()
-        result = [record.amount for record in self.records if record.date == today]
+        result = [record.amount
+                  for record
+                  in self.records
+                  if record.date == today]
         return sum(result)
 
     def get_week_stats(self):
